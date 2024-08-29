@@ -1,5 +1,18 @@
 //LeetCode URL - https://leetcode.com/problems/permutation-in-string/description/
 
+//Optimal way of sliding window - know the length of the window - add from end, remove from start
+int front = 0;
+int back = s1.length();
+while(back < s2.length()){
+    arr2[s2.charAt(front) - 'a']--;
+    arr2[s2.charAt(back) - 'a']++;
+    
+    if(Arrays.equals(arr1, arr2)) return true;
+    front++;
+    back++;
+}
+//--------------------------------------------------------------
+
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
         boolean res = false;
