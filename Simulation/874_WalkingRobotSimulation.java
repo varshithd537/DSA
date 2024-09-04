@@ -1,6 +1,15 @@
 //Leetcode URL - https://leetcode.com/problems/walking-robot-simulation/description
 
 class Solution {
+    //Use this technique to optimise the solution!!
+    private static final int HASH_MULTIPLIER = 60001; // Slightly larger than 2 * max coordinate value
+    // Hash function to convert (x, y) coordinates to a unique integer value
+    private int hashCoordinates(int x, int y) {
+        return x + HASH_MULTIPLIER * y;
+    }
+
+    //--------------------------------------------------------------
+    
     public int robotSim(int[] commands, int[][] obstacles) {
         //Arrays in Java don't override the equals() method from the Object class. 
         //This means that the default equals() method compares object references, not the actual contents of the arrays.
