@@ -8,13 +8,16 @@ class Solution {
         String[] s2_arr = s2.split(" ");
 
         for(String s : s1_arr){
-            hmap.computeIfAbsent(s, k -> 0);
-            hmap.put(s, hmap.get(s) + 1);
+            // hmap.computeIfAbsent(s, k -> 0);
+            // hmap.put(s, hmap.get(s) + 1);
+            hmap.put(s, hmap.getOrDefault(s, 0) + 1);
+
         }
 
         for(String s : s2_arr){
-            hmap.computeIfAbsent(s, k -> 0);
-            hmap.put(s, hmap.get(s) + 1);
+            // hmap.computeIfAbsent(s, k -> 0);
+            // hmap.put(s, hmap.get(s) + 1);
+            hmap.put(s, hmap.getOrDefault(s, 0) + 1);
         }
 
         // Method 1: Using a for-each loop
@@ -33,6 +36,6 @@ class Solution {
         //     System.out.println(key + ": " + map.get(key));
         // }
     // }
-        return res.toArray(new String[res.size()]);
+        return res.toArray(new String[0]);
     }
 }
